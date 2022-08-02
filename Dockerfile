@@ -1,8 +1,13 @@
-FROM websphere-liberty:microProfile
-COPY server.xml /config/
-ADD target/GetStartedJava.war /opt/ibm/wlp/usr/servers/defaultServer/dropins/
-ENV LICENSE accept
-EXPOSE 9080
+# FROM websphere-liberty:microProfile
+# COPY server.xml /config/
+# ADD target/GetStartedJava.war /opt/ibm/wlp/usr/servers/defaultServer/dropins/
+# ENV LICENSE accept
+# EXPOSE 9080
+# Pull base image 
+From tomcat:8-jre8 
+
+# Maintainer  
+COPY /webapp/target/contactpage.war /usr/local/tomcat/webapps
 
 ## Running the container locally
 # mvn clean install
