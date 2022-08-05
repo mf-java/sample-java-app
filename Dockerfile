@@ -7,11 +7,11 @@
 FROM tomcat:jre8
 
 # Maintainer  
-RUN sudo apt update && sudo apt install maven 
+RUN apt-get update &&  apt-get install maven 
 # Maven Goals
 RUN mvn clean install 
 RUN mvn package
-COPY /webapp/target/get-started-java.war /usr/local/tomcat/webapps
+COPY /webapp/target/GetStartedJava.war /usr/local/tomcat/webapps
 
 ## Running the container locally
 # mvn clean install
