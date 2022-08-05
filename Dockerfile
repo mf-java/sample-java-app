@@ -4,10 +4,14 @@
 # ENV LICENSE accept
 # EXPOSE 9080
 # Pull base image 
-From tomcat:8-jre8 
+FROM tomcat:jre8
 
 # Maintainer  
-COPY /webapp/target/contactpage.war /usr/local/tomcat/webapps
+RUN sudo apt update && sudo apt install maven 
+# Maven Goals
+RUN mvn clean install 
+RUN mvn package
+COPY /webapp/target/get-started-java.war /usr/local/tomcat/webapps
 
 ## Running the container locally
 # mvn clean install
