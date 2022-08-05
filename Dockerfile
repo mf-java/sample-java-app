@@ -7,7 +7,11 @@
 FROM tomcat:jre8
 
 # Maintainer  
-RUN apt-get install maven -y
+RUN  wget "https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz" \
+     && tar xz -f apache-maven-3.6.3-bin.tar.gz 
+
+ENV MAVEN_HOME="apache-maven-3.6.3"    
+
 # Maven Goals
 RUN mvn clean install 
 RUN mvn package
