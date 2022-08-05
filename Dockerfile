@@ -4,14 +4,16 @@
 # ENV LICENSE accept
 # EXPOSE 9080
 # Pull base image 
-FROM tomcat:jre8
+FROM tomcat:jre8-temurin-jammy 
+
+RUN apt-get update && apt-get install maven
 
 # Maintainer 
-RUN apt-get install wget -y
-RUN wget "https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz" \
-     && tar xz -f apache-maven-3.6.3-bin.tar.gz 
+#RUN apt-get install wget -y
+#RUN wget "https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz" \
+   #  && tar xz -f apache-maven-3.6.3-bin.tar.gz 
 
-ENV MAVEN_HOME="apache-maven-3.6.3"    
+#ENV MAVEN_HOME="apache-maven-3.6.3"    
 
 # Maven Goals
 RUN mvn clean install 
