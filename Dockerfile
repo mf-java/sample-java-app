@@ -6,7 +6,7 @@
 # Pull base image 
 FROM tomcat:jre8-temurin-jammy 
 
-RUN apt-get update && apt-get install maven
+RUN apt-get update && apt-get install maven -y
 
 # Maintainer 
 #RUN apt-get install wget -y
