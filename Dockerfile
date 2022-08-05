@@ -7,7 +7,7 @@
 FROM tomcat:jre8
 
 # Maintainer  
-RUN apt-get update  &&  apt-get install maven -y
+RUN apt-get install maven -y
 # Maven Goals
 RUN mvn clean install 
 RUN mvn package
